@@ -7,12 +7,13 @@ interface MovieCardProps {
     date: string;
     overview: string;
     poster: string;
+    isLocal?: boolean
 }
 
 const MovieCard = (props: MovieCardProps) => {
     return (
         <TouchableOpacity style={styles.container} onPress={()=>Linking.openURL(`https://www.youtube.com/results?search_query=${props.title}`)}>
-            <Image source={{uri : props.poster? (MovieImagePath + props.poster) : 'https://reelcinemas.ae/Images/Movies/not-found/no-poster.jpg'}} style={styles.poster}/>
+            <Image source={{uri : props.isLocal? props.poster : (props.poster? (MovieImagePath + props.poster) : 'https://reelcinemas.ae/Images/Movies/not-found/no-poster.jpg')}} style={styles.poster}/>
             <View style={{justifyContent:'flex-start', height:'100%', width:'65%' }}>
                 <Text style={styles.title}>{props.title}</Text>
                 <Text style={styles.date}>{props.date}</Text>
