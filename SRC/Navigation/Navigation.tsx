@@ -28,21 +28,21 @@ const StackNavigator = () => {
                 }}
             />
             <Stack.Screen
-                name="All Movies"
+                name="AllMovies"
                 component={AllMovies}
                 options={{
                     title: 'All Movies',
                 }}
             />
             <Stack.Screen
-                name="My Movies"
+                name="MyMovies"
                 component={MyMovies}
                 options={{
                     title: 'My Movies',
                 }}
             />
             <Stack.Screen
-                name="Add Movie"
+                name="AddMovie"
                 component={AddMovie}
                 options={{
                     title: 'Add Movie',

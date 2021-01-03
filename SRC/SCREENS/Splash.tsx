@@ -1,21 +1,33 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { SafeAreaView, Text, Image, StyleSheet } from 'react-native';
+import * as Progress from 'react-native-progress';
+import { Colors } from '../constants';
 
 const Splash: React.FC = ({ navigation }) => {
   useEffect(() => {
     setTimeout(() => {
-      navigation.navigate('MainScreen');
       navigation.reset({
         index: 0,
         routes: [{ name: 'MainScreen' }],
       });
-    }, 1000)
+    }, 3000)
   });
 
 
   return (
     <SafeAreaView style={styles.container}>
-      <Image style={styles.image} source={require('../Assets/splash2.png')} />
+      <Image style={styles.image} source={require('../Assets/splash3.png')} />
+      <Progress.Bar
+        animated={true}
+        color={Colors.mainColorRed}
+        borderColor={Colors.mainColorRedDark}
+        //progress={progress}
+        width={200}
+        indeterminate={true}
+        indeterminateAnimationDuration={3000}
+        useNativeDriver={true}
+        animationType='spring'
+        height={15} />
     </SafeAreaView>
   )
 }
@@ -28,8 +40,8 @@ const styles = StyleSheet.create({
   },
   image: {
     resizeMode: 'contain',
-    width: '200%',
-    height: '200%'
+    width: '50%',
+    height: '50%'
   }
 })
 
